@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>সিলেটি আচার - Sylheti Acar</title>
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: "Hind Siliguri", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background-color: #ff6f61;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    nav .nav-links a:hover {
+      background-color: #ff6f61;
+      border-radius: 5px;
+    }
+
+    nav .nav-links a i {
+      margin-right: 5px;
+    }
+
+    /* Hamburger Menu */
+    nav .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    nav .hamburger .line {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    /* Product Section */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .product h3 {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .product p {
+      font-size: 1rem;
+      color: #ff6f61;
+      font-weight: bold;
+    }
+
+    /* Order Links */
+    .order-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .order-links a {
+      text-decoration: none;
+      color: white;
+      background-color: #25d366;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .order-links a.messenger {
+      background-color: #006aff;
+    }
+
+    .order-links a:hover {
+      background-color: #1ebea5;
+    }
+
+    .order-links a.messenger:hover {
+      background-color: #005bb5;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+    }
+
+    footer .social-links {
+      margin-bottom: 10px;
+    }
+
+    footer .social-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    footer .social-links a:hover {
+      color: #ff6f61;
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+      }
+
+      nav .nav-links.active {
+        display: flex;
+      }
+
+      nav .hamburger {
+        display: flex;
+      }
+
+      .product {
+        width: 100%;
+      }
+
+      .order-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .order-links a {
+        width: 80%;
+        text-align: center;
+      }
+
+      footer .social-links a {
+        font-size: 1rem;
+        margin: 0 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+  <header>
+    সিলেটি আচার - Sylheti Acar
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <img src="images/sylhety acar logo .png" alt="সিলেটি আচার Logo" style="height: 50px; margin-right: 10px;">
+    <div class="logo">সিলেটি আচার</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home"><i class="fas fa-home"></i> হোম</a>
+      <a href="#about"><i class="fas fa-info-circle"></i> সম্পর্কে</a>
+      <a href="#pickles"><i class="fas fa-utensils"></i> আচার</a>
+      <a href="#contact"><i class="fas fa-phone"></i> যোগাযোগ</a>
+    </div>
+  </nav>
+ <!-- Banner -->
+ <img src="images/banner or sylhety acar.jpg" alt="Sylheti Acar Banner" style="width: 100%; height: auto; max-height: 400px;">
+
+ <!-- Header -->
+  <!-- Product Section -->
+  <section class="products" id="pickles">
+    <div class="product">
+      <img src="images/amer acar.png" alt="আমের আচার">
+      <h3>আমের আচার</h3>
+      <p>৳ ২০০</p>
+      <a href="#" onclick="toggleDescription('description1')">বিস্তারিত জানুন</a>
+      <p id="description1" style="display: none;">This is the description for আমের আচার.</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="লেবুর আচার">
+      <h3>লেবুর আচার</h3>
+      <p>৳ ১৫০</p>
+      <a href="#" onclick="toggleDescription('description2')">বিস্তারিত জানুন</a>
+      <p id="description2" style="display: none;">This is the description for লেবুর আচার.</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="মিশ্র আচার">
+      <h3>মিশ্র আচার</h3>
+      <p>৳ ২৫০</p>
+      <a href="#" onclick="toggleDescription('description3')">বিস্তারিত জানুন</a>
+      <p id="description3" style="display: none;">This is the description for মিশ্র আচার.</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="কাঁচা মরিচের আচার">
+      <h3>কাঁচা মরিচের আচার</h3>
+      <p>৳ ১০০</p>
+      <a href="#" onclick="toggleDescription('description4')">বিস্তারিত জানুন</a>
+      <p id="description4" style="display: none;">This is the description for কাঁচা মরিচের আচার.</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="পেঁয়াজের আচার">
+      <h3>পেঁয়াজের আচার</h3>
+      <p>৳ ১২০</p>
+      <a href="#" onclick="toggleDescription('description5')">বিস্তারিত জানুন</a>
+      <p id="description5" style="display: none;">This is the description for পেঁয়াজের আচার.</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="গাজরের আচার">
+      <h3>গাজরের আচার</h3>
+      <p>৳ ১৮০</p>
+      <a href="#" onclick="toggleDescription('description6')">বিস্তারিত জানুন</a>
+      <p id="description6" style="display: none;">This is the description for গাজরের আচার.</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="আদার আচার">
+      <h3>আদার আচার</h3>
+      <p>৳ ১৩০</p>
+      <a href="#" onclick="toggleDescription('description7')">বিস্তারিত জানুন</a>
+      <p id="description7" style="display: none;">This is the description for আদার আচার.</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="টমেটোর আচার">
+      <h3>টমেটোর আচার</h3>
+      <p>৳ ১৬০</p>
+      <a href="#" onclick="toggleDescription('description8')">বিস্তারিত জানুন</a>
+      <p id="description8" style="display: none;">This is the description for টমেটোর আচার.</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="লঙ্কার আচার">
+      <h3>লঙ্কার আচার</h3>
+      <p>৳ ১৪০</p>
+      <a href="#" onclick="toggleDescription('description9')">বিস্তারিত জানুন</a>
+      <p id="description9" style="display: none;">This is the description for লঙ্কার আচার.</p>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="ফুলকপির আচার">
+      <h3>ফুলকপির আচার</h3>
+      <p>৳ ১৭০</p>
+      <a href="#" onclick="toggleDescription('description10')">বিস্তারিত জানুন</a>
+      <p id="description10" style="display: none;">This is the description for ফুলকপির আচার.</p>
+    </div>
+  </section>
+  
+  <!-- Order Links -->
+  <div class="order-links">
+    <a href="https://wa.me/yourwhatsappnumber" target="_blank">WhatsApp-এ অর্ডার করুন</a>
+    <a href="https://m.me/yourmessengerusername" target="_blank" class="messenger">Messenger-এ অর্ডার করুন</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="social-links">
+      <a href="https://www.facebook.com/yourfacebookpage" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/yourwhatsappnumber" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.youtube.com/youryoutubechannel" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p>আমাদের সাথে যুক্ত থাকুন:</p>
+    <p>ফেসবুক | WhatsApp | YouTube</p>
+    <p>© ২০২৩ সিলেটি আচার | সর্বস্বত্ব সংরক্ষিত</p>
+  </footer>
+
+  <!-- JavaScript for Hamburger Menu -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById("navLinks");
+      navLinks.classList.toggle("active");
+    }
+
+    function toggleDescription(id) {
+      const description = document.getElementById(id);
+      if (description.style.display === "none") {
+        description.style.display = "block";
+      } else {
+        description.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
